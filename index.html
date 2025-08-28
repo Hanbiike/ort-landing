@@ -382,18 +382,22 @@
 <script>
   // ================= ЛИНКИ =================
   const WHATSAPP_URL = "https://wa.me/996558001987";      // ваш WhatsApp (без +)
+  const WA_PREFILL = "Здравствуйте, хочу записаться на курс по математике. Меня зовут ";
   const INSTAGRAM_FALLBACK = "https://instagram.com/han.ort245"; // Инстаграм
 
   const wa = document.getElementById('btn-wa');
   const ctas = document.querySelectorAll('.cta, #cta-hero');
 
-  wa && wa.setAttribute('href', WHATSAPP_URL || INSTAGRAM_FALLBACK || '#');
-  ctas.forEach(el => el.setAttribute('href', WHATSAPP_URL || INSTAGRAM_FALLBACK || '#'));
+  const waLink = WHATSAPP_URL
+    ? WHATSAPP_URL + (WHATSAPP_URL.includes('?') ? '&' : '?') + 'text=' + encodeURIComponent(WA_PREFILL)
+    : (INSTAGRAM_FALLBACK || '#');
+  wa && wa.setAttribute('href', waLink);
+  ctas.forEach(el => el.setAttribute('href', waLink));
 
   // Дополнительно: если пользователь кликает по цене и предпочитает WhatsApp,
   // можно нажать правой кнопкой/долгий тап — тогда отправим подготовленный текст в WhatsApp
   function openWhatsAppPrefill(plan){
-    const text = `Здравствуйте! Хочу записаться на курс ОРТ. Тариф: ${plan}. Имя: ____`; 
+    const text = `${WA_PREFILL}____. Тариф: ${plan}`;
     const url = WHATSAPP_URL + (WHATSAPP_URL.includes('?') ? '&' : '?') + 'text=' + encodeURIComponent(text);
     window.open(url, '_blank');
   }
