@@ -69,6 +69,11 @@
 .gallery img{width:100%;border-radius:12px;border:1px solid var(--border);display:block}
 .cap{font-size:12px;color:var(--muted);margin-top:6px}
 @media (max-width:960px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+/* Mobile header buttons align right */
+@media (max-width:600px){
+  .nav{align-items:flex-start}
+  .actions{justify-content:flex-end;margin-left:auto}
+}
     .reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .rev img{width:100%;border-radius:12px;border:1px solid var(--border);cursor:zoom-in;display:block}
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px);z-index:100}
