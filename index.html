@@ -94,8 +94,7 @@
       </div>
     </div>
     <div class="actions">
-      <a id="btn-tg" class="btn primary" href="#" target="_blank" rel="noopener">Telegram</a>
-      <a id="btn-wa" class="btn whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a id="btn-wa" class="btn primary" href="#" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
 </header>
@@ -208,6 +207,7 @@
       </div>
       
     </div>
+
   </section>
   <section class="wrap">
     <h2>Опыт и результаты</h2>
@@ -320,6 +320,27 @@
     </div>
   </section>
 
+  </section>
+  <section class="wrap">
+    <h2>Призовой фонд</h2>
+      <div class="panel">
+        <h3>iPAD</h3>
+        <p class="muted">За каждые <b>50 новых учеников</b> призовой фонд будет пополняться <b>1 iPAD'ом</b>.</p>
+        <div class="gallery">
+            <figure>
+                <img src="prizes/ipad-silver.jpeg" alt="iPad" />
+            </figure>
+            <figure>
+                <img src="prizes/ipad-yellow.jpeg" alt="iPad" />
+            </figure>
+            <figure>
+                <img src="prizes/ipad-pink.jpeg" alt="iPad" />
+            </figure>
+        </div>
+        <p class="muted">В конце учебного года призовой фонд будет распределяться среди обладателей наивысших результатов при этом необязательно золотых.</p>
+      </div>
+  </section>
+
   <section class="wrap faq">
     <h2>FAQ</h2>
     <details>
@@ -360,17 +381,14 @@
 
 <script>
   // ================= ЛИНКИ =================
-  const TELEGRAM_URL = "https://t.me/azizbek_bmw2001";            // ваш Telegram
   const WHATSAPP_URL = "https://wa.me/996558001987";      // ваш WhatsApp (без +)
   const INSTAGRAM_FALLBACK = "https://instagram.com/han.ort245"; // Инстаграм
 
-  const tg = document.getElementById('btn-tg');
   const wa = document.getElementById('btn-wa');
   const ctas = document.querySelectorAll('.cta, #cta-hero');
 
-  tg && tg.setAttribute('href', TELEGRAM_URL || INSTAGRAM_FALLBACK || '#');
   wa && wa.setAttribute('href', WHATSAPP_URL || INSTAGRAM_FALLBACK || '#');
-  ctas.forEach(el => el.setAttribute('href', TELEGRAM_URL || WHATSAPP_URL || INSTAGRAM_FALLBACK || '#'));
+  ctas.forEach(el => el.setAttribute('href', WHATSAPP_URL || INSTAGRAM_FALLBACK || '#'));
 
   // Дополнительно: если пользователь кликает по цене и предпочитает WhatsApp,
   // можно нажать правой кнопкой/долгий тап — тогда отправим подготовленный текст в WhatsApp
