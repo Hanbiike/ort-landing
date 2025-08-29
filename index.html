@@ -74,12 +74,27 @@
   .nav{align-items:flex-start}
   .actions{justify-content:flex-end;margin-left:auto}
 }
-    .reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.rev img{width:100%;border-radius:12px;border:1px solid var(--border);cursor:zoom-in;display:block}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px);z-index:100}
-.lightbox.hidden{display:none}
-.lightbox img{max-width:95vw;max-height:90vh;border-radius:12px;border:1px solid var(--border)}
-@media (max-width:960px){.reviews-grid{grid-template-columns:1fr 1fr}}
+    /* Контейнер слайдера */
+  #reviewsSwiper{
+    width:100%;
+    /* Можно зафиксировать минимальную высоту при «высоких» скринах */
+    /* min-height: 280px; */
+  }
+  /* Внутренности карточки */
+  .rev{margin:0}
+  .rev img{
+    display:block;width:100%;height:auto;
+    border-radius:12px;border:1px solid var(--border);
+    cursor:zoom-in;
+  }
+
+  /* Лайтбокс */
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;backdrop-filter:blur(2px);z-index:100}
+  .lightbox.hidden{display:none}
+  .lightbox img{max-width:95vw;max-height:90vh;border-radius:12px;border:1px solid var(--border)}
+
   </style>
 </head>
 <body>
@@ -250,10 +265,24 @@
     </div>
   </section>
 
-  <section class="wrap" id="reviews">
+  <!-- === Swiper: CSS + JS (CDN) === -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<section class="wrap" id="reviews">
   <h2>Отзывы</h2>
   <p class="muted">Пару отзывов из 2025 года. Нажмите на скрин, чтобы увеличить.</p>
-  <div class="reviews-grid" id="reviewsGrid"></div>
+
+  <!-- Слайдер -->
+  <div class="swiper" id="reviewsSwiper">
+    <div class="swiper-wrapper" id="reviewsWrapper"></div>
+
+    <!-- Навигация / пагинация -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
   <div class="pill" style="margin-top:12px">
     Дополнительно в актуальных Instagram.
   </div>
@@ -433,37 +462,95 @@
     if(sEl){sEl.textContent = pad(s)}
   }
   tick(); setInterval(tick, 1000);
-  // ================= ОТЗЫВЫ (автоподключение) =================
-// ОЖИДАЕМ ФАЙЛЫ: reviews/1.jpg … reviews/45.jpg (также пробуем .jpeg/.png/.webp)
-function addReview(url){
-  const grid=document.getElementById('reviewsGrid');
-  if(!grid) return;
-  const fig=document.createElement('figure'); fig.className='rev';
-  const img=document.createElement('img'); img.loading='lazy'; img.src=url; img.alt='Отзыв ученика';
-  img.addEventListener('click',()=>openLightbox(url));
-  fig.appendChild(img); grid.appendChild(fig);
-}
-function loadReviewsByPattern(count=45, exts=['jpg','jpeg','png','webp']){
-  const base='reviews/';
-  for(let i=1;i<=count;i++){
-    let found=false;
-    for(const ext of exts){
-      const url=base+i+'.'+ext;
-      const probe=new Image();
-      probe.onload=()=>{ if(!found){ found=true; addReview(url);} };
-      probe.onerror=()=>{};
-      probe.src=url;
+  // ===== Lightbox =====
+  const lb = document.createElement('div'); lb.className = 'lightbox hidden';
+  lb.innerHTML = '<img id="lbimg" alt="review" />';
+  document.body.appendChild(lb);
+  function openLightbox(url){
+    const img = document.getElementById('lbimg');
+    img.src = url;
+    lb.classList.remove('hidden');
+  }
+  lb.addEventListener('click',()=>lb.classList.add('hidden'));
+
+  // ===== Добавление слайда в Swiper =====
+  function addReviewSlide(url){
+    const wrapper = document.getElementById('reviewsWrapper');
+    if(!wrapper) return;
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+
+    const fig = document.createElement('figure');
+    fig.className = 'rev';
+
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = url;
+    img.alt = 'Отзыв ученика';
+    img.addEventListener('click', ()=>openLightbox(url));
+
+    fig.appendChild(img);
+    slide.appendChild(fig);
+    wrapper.appendChild(slide);
+
+    // Если слайды добавляются после инициализации — обновляем
+    if(window.reviewsSwiper){
+      window.reviewsSwiper.updateSlides();
+      window.reviewsSwiper.update();
     }
   }
-}
-// Lightbox
-const lb=document.createElement('div'); lb.className='lightbox hidden';
-lb.innerHTML='<img id="lbimg" alt="review" />'; document.body.appendChild(lb);
-function openLightbox(url){ document.getElementById('lbimg').src=url; lb.classList.remove('hidden'); }
-lb.addEventListener('click',()=>lb.classList.add('hidden'));
 
-// Запускаем
-loadReviewsByPattern(45);
+  // ===== Автопоиск файлов по шаблону =====
+  function loadReviewsByPattern(count=45, exts=['jpg','jpeg','png','webp']){
+    const base = 'reviews/';
+    for(let i=1;i<=count;i++){
+      let found = false;
+      for(const ext of exts){
+        const url = `${base}${i}.${ext}`;
+        const probe = new Image();
+        probe.onload = ()=>{ if(!found){ found = true; addReviewSlide(url); } };
+        probe.onerror = ()=>{};
+        probe.src = url;
+      }
+    }
+  }
+
+  // ===== Инициализация Swiper =====
+  function initReviewsSwiper(){
+    window.reviewsSwiper = new Swiper('#reviewsSwiper', {
+      // Автообновление при изменении DOM
+      observer: true,
+      observeParents: true,
+
+      slidesPerView: 1,
+      spaceBetween: 12,
+      centeredSlides: false,
+      loop: false, // включи true, если файлов много (>= slidesPerView*2)
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      keyboard: { enabled: true },
+      mousewheel: { forceToAxis: true },
+
+      // Адаптивные брейкпоинты
+      breakpoints: {
+        640:  { slidesPerView: 2, spaceBetween: 12 },
+        1024: { slidesPerView: 3, spaceBetween: 16 }
+      }
+    });
+  }
+
+  // ===== Запуск =====
+  document.addEventListener('DOMContentLoaded', () => {
+    initReviewsSwiper();
+    loadReviewsByPattern(45);
+  });
 </script>
 </body>
 </html>
