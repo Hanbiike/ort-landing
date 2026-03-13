@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Подготовка к ОРТ по математике — С НУЛЯ (9–11 классы)</title>
-  <meta name="description" content="Групповой онлайн-курс подготовки к ОРТ по математике. Только нужные темы, личная проверка ДЗ, 500+ учеников. Старт 15 сентября, Пн/Ср/Пт 16:00–18:00 (Азия/Бишкек). Лимит 20 мест." />
+  <meta name="description" content="Групповой онлайн-курс подготовки к ОРТ по математике. Только нужные темы, личная проверка ДЗ, 500+ учеников. Старт 1 апреля, каждый день 21:00–23:00 (Азия/Бишкек). Лимит 100 мест." />
   <link rel="preconnect" href="https://www.youtube-nocookie.com" />
   <style>
     :root{
@@ -41,8 +41,9 @@
     .tbox b{display:block;font-size:22px}
     .panel{background:linear-gradient(180deg,#0f1422,#0d1220);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .video{aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:#000}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+    .grid > *, .grid2 > *{min-width:0}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:13px}
     section{padding:28px 24px}
     h2{font-size:28px;margin:0 0 12px}
@@ -50,30 +51,51 @@
     .kpi{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
     .k{flex:1;min-width:180px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#0f1422}
     .k b{font-size:22px;color:var(--brand-2)}
-    .prog .item{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422}
+    .prog .item{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422;line-height:1.5}
+    .prog .item + .item{margin-top:12px}
     .faq details{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422}
     .faq details+details{margin-top:10px}
-    .price .card{position:relative;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#11192a,#0f1422);padding:16px;display:flex;flex-direction:column;gap:10px}
+    .price .card{position:relative;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#11192a,#0f1422);padding:16px;display:flex;flex-direction:column;gap:10px;height:100%}
+    .price .card h3{padding-right:98px;line-height:1.35}
+    .price .card .ul{flex:1}
+    .price .card .cta{margin-top:auto}
     .price .card.pop{outline:2px solid var(--brand)}
     .ribbon{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,var(--gold),#ffd);color:#3b2e05;font-weight:700;padding:6px 10px;border-radius:999px;font-size:12px}
     .ul{margin:0;padding-left:18px}
     .muted{color:var(--muted)}
     .foot{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding:18px 24px;color:var(--muted)}
-    .case{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422}
+    .case{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422;display:flex;flex-direction:column;height:100%}
     .em{color:var(--gold);font-weight:700}
     .warn{color:var(--danger)}
     .ok{color:var(--ok)}
     .hidden{display:none}
     .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
-.gallery figure{margin:0}
-.gallery img{width:100%;border-radius:12px;border:1px solid var(--border);display:block}
-.cap{font-size:12px;color:var(--muted);margin-top:6px}
-@media (max-width:960px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
-/* Mobile header buttons align right */
-@media (max-width:600px){
-  .nav{align-items:flex-start}
-  .actions{justify-content:flex-end;margin-left:auto}
-}
+    .gallery.certs{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .gallery figure{margin:0}
+    .gallery figure.wide{grid-column:1/-1}
+    .gallery img{width:100%;border-radius:12px;border:1px solid var(--border);display:block}
+    .gallery.certs figure:not(.wide) img{aspect-ratio:3/4;object-fit:cover;object-position:center;background:#0f1422}
+    .cap{font-size:12px;color:var(--muted);margin-top:6px}
+    .section-pill{margin-top:12px}
+    .note-top{margin-top:10px}
+    .pay-qr{max-width:320px;width:100%;border-radius:12px;border:1px solid var(--border);display:block;margin:0 auto}
+    .content-list{margin:0;padding-left:22px}
+    .content-list li + li{margin-top:8px}
+    .payment-panel{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:20px;align-items:center}
+    #reviewsSwiper .swiper-button-prev,
+    #reviewsSwiper .swiper-button-next{color:var(--brand)}
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .payment-panel{grid-template-columns:1fr}
+    }
+    /* Mobile header buttons align right */
+    @media (max-width:600px){
+      .nav{align-items:flex-start}
+      .actions{justify-content:flex-end;margin-left:auto}
+    }
     /* Контейнер слайдера */
   #reviewsSwiper{
     width:100%;
@@ -105,7 +127,7 @@
       <img src="logo.jpg" alt="Логотип курса: ОРТ с Ханом" />
       <div class="t">
         <b>ОРТ&nbsp;Математика&nbsp;—&nbsp;С&nbsp;НУЛЯ</b>
-        <span>Онлайн&nbsp;•&nbsp;Старт&nbsp;15&nbsp;сентября</span>
+        <span>Онлайн&nbsp;•&nbsp;Старт&nbsp;1&nbsp;апреля</span>
       </div>
     </div>
     <div class="actions">
@@ -117,9 +139,9 @@
 <main>
   <section class="hero wrap">
     <div>
-      <span class="h-badge">Лимит <b>20 мест</b> • Групповые онлайн-занятия</span>
+      <span class="h-badge">Лимит <b>100 мест</b> • Групповые онлайн-занятия</span>
       <h1 class="h1">Подготовка к ОРТ по математике</h1>
-      <p class="sub"><b>«Ребята, это супер легко!»</b> — курс по ОРТ для 9–11 классов. <br>Расписание: <b>Пн/Ср/Пт, 16:00–18:00</b> (Азия/Бишкек). <br>Старт: <b>15 сентября</b>.</p>
+      <p class="sub"><b>«Ребята, это супер легко!»</b> — курс по ОРТ для 9–11 классов. <br>Расписание: <b>каждый день, 21:00–23:00</b> (Азия/Бишкек). <br>Старт: <b>1 апреля</b>.</p>
 
       <div class="bullets">
         <div class="bullet">🏆 225 из 245 баллов у ментора</div>
@@ -145,30 +167,21 @@
 
     <div>
       <div class="video">
-        <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/Bc76aX_dh_U?rel=0&modestbranding=1&color=white"
-          title="Видео-обращение" frameborder="0"
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RdKWqgZELv4"
+          title="Вся ГЕОМЕТРИЯ #ОРТ #ЖРТ за 1 час" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
       <div class="kpi">
         <div class="k"><div class="muted">Длительность</div><b>1 месяц</b></div>
         <div class="k"><div class="muted">Цель курса</div><b>200+ на ОРТ</b></div>
-        <div class="k"><div class="muted">Расписание</div><b>Пн/Ср/Пт 16:00–18:00</b></div>
+        <div class="k"><div class="muted">Расписание</div><b>Каждый день 21:00–23:00</b></div>
       </div>
     </div>
   </section>
 
   <section class="wrap">
   <h2>Что внутри курса</h2>
-  <style>
-    .item {
-      margin-bottom: 12px;   /* расстояние между подтемами */
-      line-height: 1.5;      /* чуть увеличил высоту строки */
-    }
-    .item:last-child {
-      margin-bottom: 0;      /* убираем лишний отступ у последнего */
-    }
-  </style>
 
   <div class="grid">
     <div class="prog panel">
@@ -204,7 +217,7 @@
     </div>
   </div>
 
-  <div class="pill" style="margin-top:12px">
+  <div class="pill section-pill">
     Формат: онлайн, групповые занятия
   </div>
 </section>
@@ -229,8 +242,8 @@
       <div class="panel">
         <h3>225 на ОРТ и 131 по математике</h3>
         <p class="muted">Преподаватель — обладатель <b>Золотого Сертификата</b>. 500+ учеников прошли обучение.</p>
-        <div class="gallery">
-            <figure style="grid-column:1/-1">
+        <div class="gallery certs">
+          <figure class="wide">
                 <img src="prezik.jpg" alt="Вручение награды у Президента КР" />
                 <figcaption class="cap">Фото при вручении награды у Президента КР</figcaption>
             </figure>
@@ -273,18 +286,19 @@
   <h2>Отзывы</h2>
   <div class="panel">
     <h3>Пару отзывов из 2025 года</h3>
-  <p class="muted">Нажмите на скрин, чтобы увеличить.</p>
+    <p class="muted">Нажмите на скрин, чтобы увеличить.</p>
 
-  <!-- Слайдер -->
-  <div class="swiper" id="reviewsSwiper">
-    <div class="swiper-wrapper" id="reviewsWrapper"></div>
+    <!-- Слайдер -->
+    <div class="swiper" id="reviewsSwiper">
+      <div class="swiper-wrapper" id="reviewsWrapper"></div>
 
-    <!-- Навигация / пагинация -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+      <!-- Навигация / пагинация -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
-</div>
-  <div class="pill" style="margin-top:12px">
+  <div class="pill section-pill">
     Дополнительно в актуальных Instagram.
   </div>
 </section>
@@ -293,56 +307,55 @@
     <h2>Тарифы и запись</h2>
     <div class="grid">
       <div class="card">
-        <div class="ribbon">Для всех</div>
-        <h3>Базовый — 5000 сом</h3>
+        <div class="ribbon">Предмет</div>
+        <h3>Математика — 2000 сом</h3>
         <ul class="ul">
-          <li>Доступ к занятиям</li>
-          <li>Домашка <b>без</b> проверки</li>
-          <li>Доступ записям курса</li>
+          <li>Только блок по математике</li>
+          <li>Разборы задач ОРТ по математике</li>
+          <li>Доступ к записям по математике</li>
         </ul>
-        <div class="muted">Скидки: мгновенная оплата <span class="ok">-1000 сом</span>, «Приведи друга» <span class="ok">-2000 сом</span></div>
-        <a class="btn primary cta" data-plan="Базовый" href="#">Записаться</a>
-      </div>
-
-      <div class="card pop">
-        <div class="ribbon">VIP</div>
-        <h3>Стандарт — 7000 сом</h3>
-        <ul class="ul">
-          <li>Все плюсы Базового плана</li>
-          <li>Базовая проверка ДЗ</li>
-          <li>Доступ к прошлогодним записям</li>
-        </ul>
-        <div class="muted">Скидки: мгновенная оплата <span class="ok">-1000 сом</span>, «Приведи друга» <span class="ok">-2000 сом</span></div>
-        <a class="btn primary cta" data-plan="Стандарт" href="#">Записаться</a>
+        <div class="muted">Скидки: «Приведи друга» <span class="ok">-500 сом</span></div>
+        <a class="btn primary cta" data-plan="Математика" href="#">Записаться</a>
       </div>
 
       <div class="card">
-        <div class="ribbon">VIP++</div>
-        <h3>Премиум — 8000 сом</h3>
+        <div class="ribbon">Предмет</div>
+        <h3>Вербальная часть — 2000 сом</h3>
         <ul class="ul">
-          <li>Все плюсы Стандартного плана</li>
-          <li>Индивидуальный созвон с учеником при разборе домашки тет-а-тет</li>
+          <li>Только блок по вербальной части</li>
+          <li>Техники для вербальных заданий</li>
+          <li>Доступ к записям по вербальной части</li>
         </ul>
-        <div class="muted">Скидки: мгновенная оплата <span class="ok">-1000 сом</span>, «Приведи друга» <span class="ok">-2000 сом</span></div>
-        <a class="btn primary cta" data-plan="Премиум" href="#">Записаться</a>
+        <div class="muted">Скидки: «Приведи друга» <span class="ok">-500 сом</span></div>
+        <a class="btn primary cta" data-plan="Вербальная часть" href="#">Записаться</a>
+      </div>
+
+      <div class="card pop">
+        <div class="ribbon">Пакет</div>
+        <h3>Вместе — 3000 сом</h3>
+        <ul class="ul">
+          <li>Математика + вербальная часть</li>
+          <li>Полный доступ к двум блокам курса</li>
+          <li>Самый выгодный вариант по цене</li>
+        </ul>
+        <div class="muted">Скидки: «Приведи друга» <span class="ok">-500 сом</span></div>
+        <a class="btn primary cta" data-plan="Вместе" href="#">Записаться</a>
       </div>
     </div>
-    <p class="muted" style="margin-top:10px">Возврат возможен только в <b>первую неделю</b> курса. Гарантий результатов <span class="warn">нет</span> — всё зависит от вашей дисциплины и выполнения ДЗ.</p>
+    <p class="muted note-top">Возврат возможен только в <b>первую неделю</b> курса. Гарантий результатов <span class="warn">нет</span> — всё зависит от вашей дисциплины и выполнения ДЗ.</p>
   </section>
 
   <section class="wrap">
     <h2>Оплата</h2>
-    <div class="grid2">
-      <div class="panel">
-        <!-- TODO: вставьте свой QR -->
-<img src="mbank.jpg" 
-     alt="MBank QR для оплаты (Аскат P., +996 700 044 504)" 
-     style="max-width:320px;width:100%;border-radius:12px;border:1px solid var(--border);display:block;margin:0 auto;" />      </div>
-      <div class="panel">
+    <div class="panel payment-panel">
+      <!-- TODO: вставьте свой QR -->
+      <img src="mbank.jpg" 
+           alt="MBank QR для оплаты (Аскат P., +996 700 044 504)" 
+           class="pay-qr" />
+      <div>
         <h3>Процесс оплаты</h3>
-        <ol>
-          <li>Если вы скинете оплату при этом не задав ни одного вопроса, то скидка 1000 сом.</li>
-          <li>Если вы приведете друзей, то за каждого получите 2000 сом.</li>
+        <ol class="content-list">
+          <li>Если вы приведете друзей, то за каждого получите 500 сом.</li>
           <li>После оплаты отправьте чек менеджеру с указанием ФИО и тарифа.</li>
           <li>После проверки оплаты мы добавим вас в группу.</li>
         </ol>
@@ -350,36 +363,11 @@
     </div>
   </section>
 
-  </section>
-  <section class="wrap">
-    <h2>Призовой фонд</h2>
-      <div class="panel">
-        <h3>iPAD</h3>
-        <p class="muted">За каждые <b>50 новых учеников</b> призовой фонд будет пополняться <b>1 iPAD'ом</b>.</p>
-        <div class="gallery">
-            <figure>
-                <img src="prizes/ipad-silver.jpeg" alt="iPad" />
-            </figure>
-            <figure>
-                <img src="prizes/ipad-yellow.jpeg" alt="iPad" />
-            </figure>
-            <figure>
-                <img src="prizes/ipad-pink.jpeg" alt="iPad" />
-            </figure>
-        </div>
-        <p class="muted">В конце учебного года призовой фонд будет распределяться среди обладателей наивысших результатов при этом необязательно золотых.</p>
-      </div>
-  </section>
-
   <section class="wrap faq">
     <h2>FAQ</h2>
     <details>
       <summary><b>Я в 9 классе — мне рано?</b></summary>
       <div class="muted">Нет. Чем раньше начнёте, тем спокойнее к 11 классу. На ОРТ будет программа с 5 до 9 класса, поэтому это отличная возможность повторить материал.</div>
-    </details>
-    <details>
-      <summary><b>Есть ли дополнительные скидки?</b></summary>
-      <div class="muted">Многодетным семьям — <b>-1000 сом</b>. <br>Инвалидность I группы — <b>-3000 сом</b>. <br>Инвалидность II группы — <b>-2000 сом</b>. <br>Инвалидность III группы — <b>-1000 сом</b>. <br>Нужно подтверждать документально. Если у вас есть и другие проблемы - пишите.</div>
     </details>
     <details>
       <summary><b>Если пропущу занятие?</b></summary>
@@ -395,13 +383,13 @@
     </details>
     <details>
       <summary><b>Есть ли ограничения по приглашениям?</b></summary>
-      <div class="muted">Пригласите хоть 100 человек и получите 200000 сом.</div>
+      <div class="muted">Пригласите хоть 100 человек и получите 50000 сом.</div>
     </details>
   </section>
 </main>
 
 <footer class="foot">
-  <div>© 2025 ОРТ Математика • Онлайн-курс</div>
+  <div>© 2026 ОРТ Математика • Онлайн-курс</div>
   <div>
     <a href="https://instagram.com/han.ort245" target="_blank" rel="noopener" class="muted">Instagram: @han.ort245</a>
     • <a href="#" class="muted">Публичная оферта (скоро)</a>
@@ -444,8 +432,8 @@
   });
 
   // ================= ТАЙМЕР ДО СТАРТА =================
-  // Старт: 15 сентября 2025, 16:00 (Азия/Бишкек = +06:00)
-  const target = new Date("2025-09-15T16:00:00+06:00").getTime();
+  // Старт: 1 апреля 2026, 16:00 (Азия/Бишкек = +06:00)
+  const target = new Date("2026-04-01T16:00:00+06:00").getTime();
   const dEl = document.getElementById('d'), hEl = document.getElementById('h'), mEl = document.getElementById('m'), sEl = document.getElementById('s');
 
   function pad(n){return n.toString().padStart(2,'0')}
