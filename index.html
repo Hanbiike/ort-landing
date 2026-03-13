@@ -48,8 +48,9 @@
     section{padding:28px 24px}
     h2{font-size:28px;margin:0 0 12px}
     h3{margin:0 0 8px}
-    .kpi{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
-    .k{flex:1;min-width:180px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#0f1422}
+    .kpi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:8px}
+    .kpi .k:nth-child(3), .kpi .k:nth-child(4){grid-column:1/-1}
+    .k{min-width:0;padding:14px;border:1px solid var(--border);border-radius:12px;background:#0f1422}
     .k b{font-size:22px;color:var(--brand-2)}
     .prog .item{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422;line-height:1.5}
     .prog .item + .item{margin-top:12px}
@@ -88,6 +89,7 @@
       .hero{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
+      .kpi{grid-template-columns:1fr}
       .gallery{grid-template-columns:1fr}
       .payment-panel{grid-template-columns:1fr}
     }
@@ -126,7 +128,7 @@
       <!-- TODO: вставьте логотип -->
       <img src="logo.jpg" alt="Логотип курса: ОРТ с Ханом" />
       <div class="t">
-        <b>ОРТ&nbsp;Математика&nbsp;—&nbsp;С&nbsp;НУЛЯ</b>
+        <b>ОРТ&nbsp;—&nbsp;ПОСЛЕДНИЙ&nbsp;ИНТЕНСИВ</b>
         <span>Онлайн&nbsp;•&nbsp;Старт&nbsp;1&nbsp;апреля</span>
       </div>
     </div>
@@ -176,6 +178,7 @@
         <div class="k"><div class="muted">Длительность</div><b>1 месяц</b></div>
         <div class="k"><div class="muted">Цель курса</div><b>200+ на ОРТ</b></div>
         <div class="k"><div class="muted">Расписание</div><b>Каждый день 21:00–23:00</b></div>
+        <div class="k"><div class="muted">Формат уроков</div><b>Прямые эфиры на YouTube</b></div>
       </div>
     </div>
   </section>
