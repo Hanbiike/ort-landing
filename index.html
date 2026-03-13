@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Подготовка к ОРТ по математике — С НУЛЯ (9–11 классы)</title>
-  <meta name="description" content="Групповой онлайн-курс подготовки к ОРТ по математике. Только нужные темы, личная проверка ДЗ, 500+ учеников. Старт 1 апреля, каждый день 21:00–23:00 (Азия/Бишкек). Лимит 100 мест." />
+  <title>Последний интенсив по ОРТ</title>
+  <meta name="description" content="Последний интенсив по ОРТ. Только нужные темы, личная проверка ДЗ, 500+ учеников. Старт 1 апреля. Математика: 21:00–23:00, вербальная часть: 17:00–19:00 (Азия/Бишкек). Лимит 100 мест." />
   <link rel="preconnect" href="https://www.youtube-nocookie.com" />
   <style>
     :root{
@@ -52,6 +52,9 @@
     .kpi .k:nth-child(3), .kpi .k:nth-child(4){grid-column:1/-1}
     .k{min-width:0;padding:14px;border:1px solid var(--border);border-radius:12px;background:#0f1422}
     .k b{font-size:22px;color:var(--brand-2)}
+    .k .k-list{margin:8px 0 0;padding-left:18px}
+    .k .k-list li{font-weight:600;line-height:1.35}
+    .k .k-list li + li{margin-top:4px}
     .prog .item{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422;line-height:1.5}
     .prog .item + .item{margin-top:12px}
     .faq details{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1422}
@@ -76,11 +79,17 @@
     .hidden{display:none}
     .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
     .gallery.certs{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .gallery.duo{display:grid;grid-template-columns:64fr 27fr;gap:12px;align-items:stretch}
     .gallery figure{margin:0}
     .gallery figure.wide{grid-column:1/-1}
     .gallery img{width:100%;border-radius:12px;border:1px solid var(--border);display:block}
     .gallery.certs figure:not(.wide) img{aspect-ratio:3/4;object-fit:cover;object-position:center;background:#0f1422}
+    .gallery.duo figure{width:100%;height:100%}
+    .gallery.duo figure:first-child{aspect-ratio:16/9}
+    .gallery.duo figure:last-child{aspect-ratio:3/4}
+    .gallery.duo img{width:100%;height:100%;object-fit:cover;object-position:center;background:#0f1422}
     .cap{font-size:12px;color:var(--muted);margin-top:6px}
+    .panel-gap{margin-top:20px}
     .section-pill{margin-top:12px}
     .note-top{margin-top:10px}
     .pay-qr{max-width:320px;width:100%;border-radius:12px;border:1px solid var(--border);display:block;margin:0 auto}
@@ -95,6 +104,7 @@
       .grid2{grid-template-columns:1fr}
       .kpi{grid-template-columns:1fr}
       .gallery{grid-template-columns:1fr}
+      .gallery.duo{grid-template-columns:64fr 27fr}
       .payment-panel{grid-template-columns:1fr}
     }
     /* Mobile header buttons align right */
@@ -147,7 +157,7 @@
     <div>
       <span class="h-badge">Лимит <b>100 мест</b> • Групповые онлайн-занятия</span>
       <h1 class="h1">Подготовка к ОРТ по математике</h1>
-      <p class="sub"><b>«Ребята, это супер легко!»</b> — курс по ОРТ для 9–11 классов. <br>Расписание: <b>каждый день, 21:00–23:00</b> (Азия/Бишкек). <br>Старт: <b>1 апреля</b>.</p>
+      <p class="sub"><b>«Ребята, это супер легко!»</b> — курс по ОРТ для 9–11 классов. <br><b>120 часов</b> интенсивных занятий <br>Старт: <b>1 апреля</b>.</p>
 
       <div class="bullets">
         <div class="bullet">🏆 225 из 245 баллов у ментора</div>
@@ -181,7 +191,14 @@
       <div class="kpi">
         <div class="k"><div class="muted">Длительность</div><b>1 месяц</b></div>
         <div class="k"><div class="muted">Цель курса</div><b>200+ на ОРТ</b></div>
-        <div class="k"><div class="muted">Расписание</div><b>Каждый день 21:00–23:00</b></div>
+        <div class="k">
+          <div class="muted">Расписание</div>
+          <b>Каждый день</b>
+          <ul class="k-list">
+            <li>Математика: 21:00–23:00</li>
+            <li>Вербальная часть: 17:00–19:00</li>
+          </ul>
+        </div>
         <div class="k"><div class="muted">Формат уроков</div><b>Прямые эфиры на YouTube</b></div>
       </div>
     </div>
@@ -247,8 +264,8 @@
   <section class="wrap">
     <h2>Опыт и результаты</h2>
       <div class="panel">
-        <h3>225 на ОРТ и 131 по математике</h3>
-        <p class="muted">Преподаватель — обладатель <b>Золотого Сертификата</b>. 500+ учеников прошли обучение.</p>
+        <h3>Аскат Рахымбеков – 225 ОРТ и 131 Математика</h3>
+        <p class="muted">Преподаватель математики — обладатель <b>Золотого Сертификата</b>. 500+ учеников прошли обучение.</p>
         <div class="gallery certs">
           <figure class="wide">
                 <img src="prezik.jpg" alt="Вручение награды у Президента КР" />
@@ -262,6 +279,19 @@
                 <img src="gold.jpg" alt="Золотой сертификат ОРТ" />
                 <figcaption class="cap">Золотой сертификат ОРТ</figcaption>
             </figure>
+        </div>
+      </div>
+      <div class="panel panel-gap">
+        <h3>Арзыбек Сулаев – 227 ОРТ</h3>
+        <p class="muted">Победитель республиканской олимпиады по русскому языку.</p>
+        <div class="gallery duo">
+          <figure>
+            <img src="sulaev.jpeg" alt="Арзыбек Сулаев" />
+            <figcaption class="cap">Фото при вручении награды у Президента КР</figcaption>
+          </figure>
+          <figure>
+            <img src="sul_gold.jpeg" alt="Награда Арзыбека Сулаева" />
+          </figure>
         </div>
       </div>
   </section>
@@ -382,7 +412,7 @@
     </details>
     <details>
       <summary><b>Когда старт и какое расписание?</b></summary>
-      <div class="muted">Старт потока — 1 апреля. Занятия проходят каждый день с 21:00 до 23:00 по времени Бишкек (Asia/Bishkek).</div>
+      <div class="muted">Старт потока — 1 апреля. Математика проходит с 21:00 до 23:00, вербальная часть — с 17:00 до 19:00 по времени Бишкек (Asia/Bishkek).</div>
     </details>
     <details>
       <summary><b>В каком формате проходят уроки?</b></summary>
