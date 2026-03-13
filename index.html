@@ -59,9 +59,13 @@
     .price .card{position:relative;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#11192a,#0f1422);padding:16px;display:flex;flex-direction:column;gap:10px;height:100%}
     .price .card h3{padding-right:98px;line-height:1.35}
     .price .card .ul{flex:1}
+    .price .ul{padding-left:22px}
+    .price .ul li + li{margin-top:6px}
     .price .card .cta{margin-top:auto}
     .price .card.pop{outline:2px solid var(--brand)}
     .ribbon{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,var(--gold),#ffd);color:#3b2e05;font-weight:700;padding:6px 10px;border-radius:999px;font-size:12px}
+    .ribbon.price-tag{min-width:84px;text-align:center}
+    .ribbon.package-price{background:linear-gradient(135deg,#9be7c2,#dcffe8);color:#16392b}
     .ul{margin:0;padding-left:18px}
     .muted{color:var(--muted)}
     .foot{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding:18px 24px;color:var(--muted)}
@@ -310,35 +314,35 @@
     <h2>Тарифы и запись</h2>
     <div class="grid">
       <div class="card">
-        <div class="ribbon">Предмет</div>
-        <h3>Математика — 2000 сом</h3>
+        <div class="ribbon price-tag">2000 сом</div>
+        <h3>Математика</h3>
         <ul class="ul">
-          <li>Только блок по математике</li>
-          <li>Разборы задач ОРТ по математике</li>
-          <li>Доступ к записям по математике</li>
+          <li>Арифметика</li>
+          <li>Алгебра</li>
+          <li>Геометрия</li>
         </ul>
         <div class="muted">Скидки: «Приведи друга» <span class="ok">-500 сом</span></div>
         <a class="btn primary cta" data-plan="Математика" href="#">Записаться</a>
       </div>
 
       <div class="card">
-        <div class="ribbon">Предмет</div>
-        <h3>Вербальная часть — 2000 сом</h3>
+        <div class="ribbon price-tag">2000 сом</div>
+        <h3>Вербальная часть</h3>
         <ul class="ul">
-          <li>Только блок по вербальной части</li>
-          <li>Техники для вербальных заданий</li>
-          <li>Доступ к записям по вербальной части</li>
+          <li>Аналогии</li>
+          <li>Чтение</li>
+          <li>Грамматика</li>
         </ul>
         <div class="muted">Скидки: «Приведи друга» <span class="ok">-500 сом</span></div>
         <a class="btn primary cta" data-plan="Вербальная часть" href="#">Записаться</a>
       </div>
 
       <div class="card pop">
-        <div class="ribbon">Пакет</div>
-        <h3>Вместе — 3000 сом</h3>
+        <div class="ribbon price-tag package-price">3000 сом</div>
+        <h3>Вместе</h3>
         <ul class="ul">
-          <li>Математика + вербальная часть</li>
-          <li>Полный доступ к двум блокам курса</li>
+          <li>Математика</li>
+          <li>Вербальная часть</li>
           <li>Самый выгодный вариант по цене</li>
         </ul>
         <div class="muted">Скидки: «Приведи друга» <span class="ok">-500 сом</span></div>
